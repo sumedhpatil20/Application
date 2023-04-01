@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appsumedh
+spec:
+  selector:
+    matchLabels:
+      app: sumedh
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sumedh
+    spec:
+      containers:
+      - image: application
+        name: appsumedh
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+          name: appsumedh
